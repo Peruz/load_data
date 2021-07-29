@@ -36,8 +36,8 @@ plt.minorticks_on()
 # fig.autofmt_xdate()
 # Use a more precise date string for the x axis locations in the toolbar.
 # xmajorloc = mdates.DayLocator(bymonthday=[1, 10, 20])
-xmajorloc = mdates.WeekdayLocator(byweekday=[0])  # major on the first week day
 xminorloc = mdates.WeekdayLocator(byweekday=range(0, 7))  # minor every day
+xmajorloc = mdates.WeekdayLocator(byweekday=[0])  # major on the first week day
 ax.xaxis.set_major_locator(xmajorloc)
 ax.xaxis.set_minor_locator(xminorloc)
 ax.fmt_xdata = mdates.DateFormatter('%Y-%m-%d')
@@ -48,6 +48,7 @@ ax.yaxis.grid(True, 'minor', color='gray', alpha=0.3, ls='-', lw=1)
 ax.set_ylabel('load kg')
 plt.grid('minor')
 plt.tight_layout()
-fout = fin.replace('csv', 'pdf')
+fout = fin.replace('csv', 'svg')
 plt.savefig(fout)
+fout = fin.replace('csv', 'pdf')
 plt.show()
